@@ -12,7 +12,7 @@ const Product = (props) => {
                 <img src={img} alt="" />
            </div>
            <div className="product-text">
-               <h4>Title: {name.slice(1,10)}</h4>
+               <h4>Title: {name.slice(0,10)}</h4>
                <p>Price: {price}$</p>
            </div>
            <div className="product-text1">

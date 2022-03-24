@@ -2,11 +2,13 @@ import React from 'react';
 import './Cart.css'
 
 const Cart = ({cart}) => {
-    console.log(cart)
+    // console.log(cart)
+    let quantity = 0
     let totalPrice = 0
     let shippingCharge = 0
     for(const product of cart){
-        totalPrice += product.price
+        quantity += product.quantity
+        totalPrice += product.price * product.quantity
         shippingCharge += product.shipping
     }
     const tex = totalPrice * 0.1
@@ -16,7 +18,7 @@ const Cart = ({cart}) => {
         <div className="cart">
             <div className="cart-text">
                 <h3>Order summary</h3>
-                <p>Selected products: {cart.length}</p>
+                <p>Selected products: {quantity}</p>
                 <p>Total Price: ${totalPrice}</p>
                 <p>Total Shipping Charge: ${shippingCharge}</p>
                 <p>Tax: ${tex.toFixed(2)}</p>
