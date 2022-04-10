@@ -8,6 +8,8 @@ import NotFound from './components/NotFound/NotFound';
 import Order from './components/Order/Order';
 import Shop from './components/Shop/Shop';
 import SingUp from './components/SingUp/SingUp';
+import RequireAuth from './components/RequareAuth/RequareAuth';
+import Shipping from './components/Shipping/Shipping';
 
 
 function App() {
@@ -15,14 +17,23 @@ function App() {
     <div>
       <Header></Header>
       <Routes>
-        <Route path='/' element={<Shop/>} />
-        <Route path='/shop' element={<Shop/>} />
-        <Route path='/order' element={<Order/>} />
-        <Route path='/inventory' element={<Inventory/>} />
-        <Route path='/about' element={<About/>} />
-        <Route path='/login' element={<Login/>} />
-        <Route path='/singup' element={<SingUp/>}></Route>
-        <Route path={'*'} element={<NotFound/>}/>
+        <Route path='/' element={<Shop />} />
+        <Route path='/shop' element={<Shop />} />
+        <Route path='/order' element={<Order />} />
+        <Route path='/inventory' element={
+          <RequireAuth>
+            <Inventory />
+          </RequireAuth>
+        } />
+        <Route path='/shipping' element={
+          <RequireAuth>
+            <Shipping/>
+          </RequireAuth>
+        }></Route>
+        <Route path='/about' element={<About />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/singup' element={<SingUp />}></Route>
+        <Route path={'*'} element={<NotFound />} />
       </Routes>
     </div>
   );
