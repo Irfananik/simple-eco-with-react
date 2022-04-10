@@ -11,7 +11,7 @@ const SingUp = () => {
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
-    const [createUserWithEmailAndPassword, user] = useCreateUserWithEmailAndPassword(auth)
+    const [createUserWithEmailAndPassword, user, loading] = useCreateUserWithEmailAndPassword(auth)
 
     const handleEmailBlur = event =>{
         setEmail(event.target.value);
@@ -24,6 +24,10 @@ const SingUp = () => {
     const handleConfirmPasswordBlur = event =>{
         setConfirmPassword(event.target.value);
     }
+
+    if (loading) {
+        return <p className="loging-text">Loading...</p>;
+      }
 
     if(user){
         navigate('/shop');

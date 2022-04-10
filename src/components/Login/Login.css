@@ -50,3 +50,9 @@
     color: #FF9900;
     text-decoration: none;
 }
+.loging-text{
+    font-size:100px;
+    color:darkgoldenrod;
+    font-weight:bold;
+    text-align:center;
+}
